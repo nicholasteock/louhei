@@ -1,0 +1,21 @@
+body {
+	background: url('../images/bg.png');
+	background-size: cover;
+	font-family: Overlock;
+	color: @white;
+	position: relative;
+	// height: 100vh;
+	// overflow: hidden;
+}
+
+@media only screen and (orientation:portrait){
+	.portraitonly-message {
+		display: none;
+	}
+}
+
+@media only screen and (orientation:landscape){
+	.app-stage {
+		display: none;
+	}
+}
