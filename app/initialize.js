@@ -6,9 +6,9 @@ var application 	= require('application');
 $(function() {
 	$(document).ready( function() {
 		$('.loading-overlay').addClass('hide');
-		application.initialize();
 	});
 
+	application.initialize();
 	// $('.app-stage').click(function() {
 	// 	if (!document.fullscreenElement &&    // alternative standard method
  //      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {

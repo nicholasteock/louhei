@@ -37,6 +37,8 @@ module.exports = function(callback) {
 			'images/ingredients/miniplate_4.png',
 			'images/tossing/tossing_start_text.png',
 			'images/tossing/tossing_halfway_text.png',
+			'images/tossing/tossing_final_text.png',
+			'images/tossing/mainplate_tossed_base.png',
 			'images/tossing/mainplate_tossed_start.png',
 			'images/tossing/mainplate_tossed_halfway.png',
 			'images/tossing/mainplate_tossed_completely.png',
