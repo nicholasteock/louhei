@@ -7,7 +7,7 @@ var tossCount 				= 0;
 var maxTosses 				= 3;
 var stageNames 				= ['main', 'ingredients', 'tossing', 'share'];
 var url 					= encodeURIComponent('http://bitly.com/1z99Dhc');
-var shareMessage 			= encodeURIComponent("Happy Chinese New year, I wish you prosperity, wealth and success! Let’s share a Lou Hei together, click on the link to start it with me! " + url);
+var shareMessage 			= "Happy Chinese New year, I wish you prosperity, wealth and success! Let’s share a Lou Hei together, click on the link to start it with me! " + url;
 
 var initialize = function() {
 
@@ -15,13 +15,6 @@ var initialize = function() {
 	$('.stage').addClass('hide');
 	$('.in').removeClass('in');
 	$('.bounce').removeClass('bounce');
-
-	// $('.main-stage').removeClass('hide');
-	// $('.ingredients-stage').removeClass('hide');
-	// showIngredient();
-	// $('.tossing-stage').removeClass('hide');
-	// $('.main-stage').addClass('hide');
-	// $('.share-stage').removeClass('hide');
 
 	currentIngredientIdx 	= 0;
 	currentStageIdx 		= 0;
@@ -107,6 +100,7 @@ var showShareButtons = function() {
 		else {
 			$('.js-message-0').addClass('hide');
 			$('.js-message-1').removeClass('hide').addClass('bounce');
+			$('.chunks-container').addClass('hide');
 			$('.share-container').addClass('in');
 			$('.credits-container').addClass('in');
 		}
@@ -168,7 +162,6 @@ var toss = function() {
 
 	var tossCallback = function() {
 		tossCount += 1;
-		console.log('In callback', tossCount);
 
 		$('.js-tossmessage-'+(tossCount-1)).addClass('hide');
 		$('.js-tossmessage-'+tossCount).removeClass('opaque hide');

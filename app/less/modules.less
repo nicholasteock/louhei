@@ -1,3 +1,38 @@
+// Loading spinner
+// ============================================================================
+.spinner,
+.spinner:before,
+.spinner:after {
+  background: #FFF;
+  -webkit-animation: spin 1s infinite ease-in-out;
+  animation: spin 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.spinner:before,
+.spinner:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.spinner:before {
+  left: -1.5em;
+}
+.spinner {
+  text-indent: -9999em;
+  margin: 8em auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.spinner:after {
+  left: 1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+// ============================================================================
+
 // Utility classes
 // ============================================================================
 .top-layer {
@@ -42,7 +77,6 @@
 }
 .banner {
     max-width: 100%;
-    // max-width: 80%;
 }
 
 .ingredient-banner {
@@ -52,6 +86,7 @@
 
     &.in {
         -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
         -webkit-animation: top-in 1.2s ease forwards;
         animation: top-in 1.2s ease forwards;
     }
@@ -63,6 +98,7 @@
     &.bounce {
         display: block;
         -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
         -webkit-animation: bounce 0.8s ease forwards infinite;
         animation: bounce 0.8s ease forwards infinite;
     }
@@ -76,6 +112,7 @@
 .main-plate, .toss-base {
     max-width: 120%;
     -webkit-transform: translate(-8%, 10%);
+    transform: translate(-8%, 10%);
 }
 
 .small-plate {
@@ -88,6 +125,7 @@
     &.in {
         display: block;
         -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
         -webkit-animation: bottom-in 1.2s ease forwards;
         animation: bottom-in 1.2s ease forwards;
     }
@@ -140,8 +178,9 @@
     overflow: hidden;
     position: absolute;
     top: 0;
-    -webkit-transform: translate(0,110%);
     opacity: 0;
+    -webkit-transform: translate(0,110%);
+    transform: translate(0,110%);
 
     &.in {
         -webkit-animation: fade-in 2.3s ease forwards;
@@ -193,11 +232,12 @@
 
 .bob {
     -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
     -webkit-animation: bounce 0.7s ease forwards infinite;
     animation: bounce 0.7s ease forwards infinite;
 }
 
-// Media Queries
+// Media Queries (for modern taller screens)
 // ============================================================================
 @media screen and (min-height: 500px) {
     .credits-text {
@@ -215,6 +255,7 @@
     .chunk-plate {
         max-width: 111%;
         -webkit-transform: translate(-8%);
+        transform: translate(-8%);
     }
     .chunks-container {
         -webkit-transform: translate(0,56%);
@@ -245,30 +286,30 @@
 
 @-webkit-keyframes bounce {
     0% {
-        -webkit-transform: scale(0.94,0.94); /* Chrome, Safari, Opera */
+        -webkit-transform: scale(0.94,0.94);
+        transform: scale(0.94,0.94);
     }
     50% {
-        -webkit-transform: scale(1,1); /* Chrome, Safari, Opera */
+        -webkit-transform: scale(1,1);
+        transform: scale(1,1);
     }
     100% {
-        -webkit-transform: scale(0.94,0.94); /* Chrome, Safari, Opera */
+        -webkit-transform: scale(0.94,0.94);
+        transform: scale(0.94,0.94);
     }
 }
 
 @keyframes bounce {
     0% {
-        -ms-transform: scale(0.94,0.94); /* IE 9 */
-        -webkit-transform: scale(0.94,0.94); /* Chrome, Safari, Opera */
+        -webkit-transform: scale(0.94,0.94);
         transform: scale(0.94,0.94);
     }
     50% {
-        -ms-transform: scale(1,1); /* IE 9 */
-        -webkit-transform: scale(1,1); /* Chrome, Safari, Opera */
+        -webkit-transform: scale(1,1);
         transform: scale(1,1);
     }
     100% {
-        -ms-transform: scale(0.94,0.94); /* IE 9 */
-        -webkit-transform: scale(0.94,0.94); /* Chrome, Safari, Opera */
+        -webkit-transform: scale(0.94,0.94);
         transform: scale(0.94,0.94);
     }
 }
@@ -279,4 +320,29 @@
 
 @keyframes fade-in {
     100% { opacity: 1; }
+}
+
+@-webkit-keyframes spin {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0 #FFF;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em #ffffff;
+    height: 5em;
+  }
+}
+@keyframes spin {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0 #FFF;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em #ffffff;
+    height: 5em;
+  }
 }

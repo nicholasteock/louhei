@@ -1,12 +1,5 @@
 module.exports = function(imageArr, callback){
-	var $progress = $('#progress').text('0%'),
-		loader = new PxLoader();
-
-	// loader.addProgressListener(function(e) { 
- // 		console.log(e.completedCount + ' / ' + e.totalCount);
-	//     // the event provides stats on the number of completed items 
-	//     $progress.innerHt(e.completedCount + ' / ' + e.totalCount); 
-	// });
+	var loader = new PxLoader();
 
 	loader.addCompletionListener(callback);
 

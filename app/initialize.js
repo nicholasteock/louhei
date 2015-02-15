@@ -9,20 +9,6 @@ $(function() {
 	});
 
 	application.initialize();
-	// $('.app-stage').click(function() {
-	// 	if (!document.fullscreenElement &&    // alternative standard method
- //      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
-	// 		if (document.documentElement.requestFullscreen) {
-	// 	      document.documentElement.requestFullscreen();
-	// 	    } else if (document.documentElement.msRequestFullscreen) {
-	// 	      document.documentElement.msRequestFullscreen();
-	// 	    } else if (document.documentElement.mozRequestFullScreen) {
-	// 	      document.documentElement.mozRequestFullScreen();
-	// 	    } else if (document.documentElement.webkitRequestFullscreen) {
-	// 	      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-	// 	    }
-	// 	}
-	// });
 
 	$('.main-stage .js-plate-0').click(function() {
 		$(".audio-player")[0].play();
