@@ -7,7 +7,7 @@ var tossCount 				= 0;
 var maxTosses 				= 3;
 var stageNames 				= ['main', 'ingredients', 'tossing', 'share'];
 var url 					= encodeURIComponent('http://bitly.com/1z99Dhc');
-var shareMessage 			= "Hi there! Let's Lou Hei together at: " + url;
+var shareMessage 			= encodeURIComponent("Happy Chinese New year, I wish you prosperity, wealth and success! Let’s share a Lou Hei together, click on the link to start it with me! " + url);
 
 var initialize = function() {
 
@@ -18,6 +18,7 @@ var initialize = function() {
 
 	// $('.main-stage').removeClass('hide');
 	// $('.ingredients-stage').removeClass('hide');
+	// showIngredient();
 	// $('.tossing-stage').removeClass('hide');
 	// $('.main-stage').addClass('hide');
 	// $('.share-stage').removeClass('hide');
@@ -53,13 +54,9 @@ var plateClickHandler = function() {
 			}, 500);
 		}
 	}
-
 	window.requestAnimFrame(function() {
-		showIngredients(0, 6);
+		showIngredients(0, 5);
 	});
-
-
-
 };
 
 var showIngredient = function() {
@@ -114,7 +111,6 @@ var showShareButtons = function() {
 			$('.credits-container').addClass('in');
 		}
 	};
-
 	window.requestAnimFrame(function() {
 		hideChunks(0,6); // Start from 1, total 5 chunks
 	});
@@ -137,10 +133,8 @@ var doToss = function( callback ) {
 			callback();
 		}
 	}
-
 	window.requestAnimFrame(function() {
 		animateToss(0, 17);
-		// animateToss(-1, 32);
 	});
 };
 
@@ -168,7 +162,7 @@ var shareLink = function() {
 var toss = function() {
 	$(document).trigger('disable_shaker'); // Disable shaker while tossing.
 
-	$('.toss-banner').addClass('hide');
+	$('.toss-banner').addClass('opaque');
 	$('.toss-base').addClass('hide');
 	$('.js-tossbase').removeClass('hide');
 
@@ -176,7 +170,8 @@ var toss = function() {
 		tossCount += 1;
 		console.log('In callback', tossCount);
 
-		$('.js-tossmessage-'+tossCount).removeClass('hide');
+		$('.js-tossmessage-'+(tossCount-1)).addClass('hide');
+		$('.js-tossmessage-'+tossCount).removeClass('opaque hide');
 		$('.js-tossbase-'+tossCount).removeClass('hide');
 		
 		if(tossCount < maxTosses) {
@@ -186,9 +181,7 @@ var toss = function() {
 			nextStage();
 		}
 	};
-
 	doToss(tossCallback);
-	
 };
 
 module.exports = {
