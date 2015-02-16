@@ -7,7 +7,7 @@ var tossCount 				= 0;
 var maxTosses 				= 3;
 var stageNames 				= ['main', 'ingredients', 'tossing', 'share'];
 var url 					= encodeURIComponent('http://bitly.com/1z99Dhc');
-var shareMessage 			= "Happy Chinese New year, I wish you prosperity, wealth and success! Let’s share a Lou Hei together, click on the link to start it with me! " + url;
+var shareMessage 			= "Happy Chinese New year, I wish you prosperity, wealth and success! Let’s share a Lou Hei together, click on the link to lou " + url;
 
 var initialize = function() {
 
