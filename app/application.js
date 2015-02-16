@@ -21,6 +21,9 @@ var initialize = function() {
 
 	$('.app-stage').removeClass('hide');
 	$(document).trigger('disable_shaker');
+
+	$('.main-stage').addClass('hide');
+	$('.share-stage').removeClass('hide');
 };
 
 var plateClickHandler = function() {
