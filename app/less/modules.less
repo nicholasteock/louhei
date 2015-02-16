@@ -58,11 +58,6 @@
     overflow: hidden;
 }
 
-.banner-container {
-    height: 30%;
-    overflow: hidden;
-}
-
 .credits-text {
     font-size: 16px;
     padding-right: 10px;
@@ -148,7 +143,6 @@
     left: 0;
     padding: 0;
 }
-
 .toss-frame {
     max-width: 100%;
     position: absolute;
@@ -200,7 +194,6 @@
     width: 100%;
     color: #343434;
 }
-
 .share-buttons-container {
     padding: 0 15%;
 }
@@ -263,6 +256,48 @@
     }
     .share-text {
         font-size: 21px;
+    }
+}
+
+// Accounting for tablet aspect ratios
+@media screen and (min-device-aspect-ratio: 10/16) {
+    .chunk-plate {
+        max-width: 115%;
+    }
+    .chunks-container {
+        -webkit-transform: translate(0,56.5%);
+        transform: translate(0,56.5%);
+    }
+    .toss-frame {
+        -webkit-transform: scale(1.15,1); /* Chrome, Safari, Opera */
+        transform: scale(1.15,1);
+    }
+}
+
+// Accounting for tablet larger screens
+@media screen and (min-width: 768px) {
+    .credits-text {
+        font-size: 30px;
+        padding-right: 30px;
+    }
+    .share-text {
+        font-size: 45px;
+    }
+    .share-link {
+        padding-top: 10px; 
+        padding-bottom: 10px; 
+        height: 60px;
+        font-size: 35px;
+    }
+    .share-type {
+        font-size: 36px;
+        line-height: 1.5;
+    }
+    .share-icon {
+        max-width: 11%;
+    }
+    .credits-container {
+        height: 47%;
     }
 }
 
