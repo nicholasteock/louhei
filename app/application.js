@@ -160,6 +160,7 @@ var toss = function() {
 
 		$('.js-tossmessage-'+(tossCount-1)).addClass('hide');
 		$('.js-tossmessage-'+tossCount).removeClass('opaque hide');
+		$('.js-tossbase').addClass('hide');
 		$('.js-tossbase-'+tossCount).removeClass('hide');
 
 		if(tossCount < maxTosses) {

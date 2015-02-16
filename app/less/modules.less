@@ -127,7 +127,7 @@
 }
 
 .toss-banner {
-    margin-bottom: 17%;
+    margin-bottom: 16.5%;
 
     &.opaque {
         opacity: 0;
@@ -150,7 +150,7 @@
 }
 
 .final-banner {
-    margin-bottom: 14%;
+    margin-bottom: 16.5%;
 }
 
 .chunks-container {
@@ -160,9 +160,9 @@
     transform: translate(0,55%);
 }
 .chunk-plate {
-    max-width: 110%;
-    -webkit-transform: translate(-9%);
-    transform: translate(-9%);
+    max-width: 109%;
+    -webkit-transform: translate(-8%);
+    transform: translate(-8%);
     position: absolute;
     top: 0;
 }
@@ -242,6 +242,9 @@
     .desc-banner {
         max-width: 95%;
     }
+    .toss-banner {
+        margin-bottom: 14%;
+    }
     .final-banner {
         margin-bottom: 13.8%;
     }
@@ -260,7 +263,7 @@
 }
 
 // Accounting for tablet aspect ratios
-@media screen and (min-device-aspect-ratio: 10/16) {
+@media screen and (min-height: 500px) and (min-device-aspect-ratio: 10/16) {
     .chunk-plate {
         max-width: 115%;
     }
@@ -269,13 +272,16 @@
         transform: translate(0,56.5%);
     }
     .toss-frame {
-        -webkit-transform: scale(1.15,1); /* Chrome, Safari, Opera */
-        transform: scale(1.15,1);
+        -webkit-transform: scale(1.2,1); /* Chrome, Safari, Opera */
+        transform: scale(1.2,1);
     }
 }
 
 // Accounting for tablet larger screens
 @media screen and (min-width: 768px) {
+    .ingredient-banner {
+        margin-bottom: 13.7%;
+    }
     .credits-text {
         font-size: 30px;
         padding-right: 30px;
