@@ -110,28 +110,6 @@ var showShareButtons = function() {
 	});
 };
 
-var doToss = function( callback ) {
-	
-	function animateToss(currentFrameIdx, totalFrames) {
-		$('.js-toss-'+currentFrameIdx).addClass('hide');
-		$('.js-toss-'+(currentFrameIdx+1)).removeClass('hide');
-
-		if(currentFrameIdx < totalFrames-1) {
-				window.requestAnimFrame(function() {
-					animateToss(currentFrameIdx+1, totalFrames);
-				});
-		}
-		else {
-			$('.js-toss-'+(currentFrameIdx+1)).addClass('hide');
-			$('.js-tossbase').addClass('hide');
-			callback();
-		}
-	}
-	window.requestAnimFrame(function() {
-		animateToss(0, 17);
-	});
-};
-
 var isLastIngredient = function() {
 	return currentIngredientIdx === ingredientCount;
 };
@@ -155,26 +133,48 @@ var shareLink = function() {
 
 var toss = function() {
 	$(document).trigger('disable_shaker'); // Disable shaker while tossing.
-
 	$('.toss-banner').addClass('opaque');
 	$('.toss-base').addClass('hide');
 	$('.js-tossbase').removeClass('hide');
 
-	var tossCallback = function() {
+	var doToss = function( callback ) {
+
+		var tossFrameRate 	= 8, // FPS
+			totalFrames 	= 17;
+
+		function animateToss(currentFrameIdx, totalFrames) {
+			$('.js-toss-'+currentFrameIdx).removeClass('hide'); 	// Show next frame
+			$('.js-toss-'+(currentFrameIdx-1)).addClass('hide'); // Hide previous frame
+			if(currentFrameIdx > totalFrames ) { return callback(); }
+			else { 
+				setTimeout( function() {
+					animateToss(currentFrameIdx+1, totalFrames);
+				}, 1000/tossFrameRate );
+			}
+		}
+		animateToss(0,totalFrames);
+	};
+
+	var afterToss = function() {
 		tossCount += 1;
 
 		$('.js-tossmessage-'+(tossCount-1)).addClass('hide');
 		$('.js-tossmessage-'+tossCount).removeClass('opaque hide');
 		$('.js-tossbase-'+tossCount).removeClass('hide');
-		
+
 		if(tossCount < maxTosses) {
+			$('.js-tossmessage-'+tossCount).removeClass('hide');
 			$(document).trigger('enable_shaker');
 		}
 		else {
-			nextStage();
+			setTimeout( function() {
+				nextStage();
+			}, 125);
 		}
 	};
-	doToss(tossCallback);
+
+	doToss(afterToss);
+
 };
 
 module.exports = {
