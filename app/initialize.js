@@ -26,6 +26,7 @@ $(function() {
 	$('.js-share-whatsapp').click(function() {
 		$(".audio-player")[0].pause();
 		setTimeout( function() {
+			ga('send', 'event', 'button', 'click', 'WhatsApp Button');
 			application.shareLink();
 		}, 100);
 	});
