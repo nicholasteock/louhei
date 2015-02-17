@@ -1,4 +1,3 @@
-// Hosted on: http://bitly.com/1z99Dhc
 var freeze 					= false;
 var ingredientCount 		= 5;
 var currentIngredientIdx 	= 0;
@@ -6,8 +5,8 @@ var currentStageIdx 		= 0;
 var tossCount 				= 0;
 var maxTosses 				= 3;
 var stageNames 				= ['main', 'ingredients', 'tossing', 'share'];
-var url 					= encodeURIComponent('http://bitly.com/1z99Dhc');
-var shareMessage 			= "Hi there! Let's Lou Hei together at: " + url;
+var url 					= encodeURIComponent('http://cny.2359media.com');
+var shareMessage 			= "Happy Chinese New year, I wish you prosperity, wealth and success! Let’s share a Lou Hei together, click on the link to lou " + url;
 
 var initialize = function() {
 
@@ -15,12 +14,6 @@ var initialize = function() {
 	$('.stage').addClass('hide');
 	$('.in').removeClass('in');
 	$('.bounce').removeClass('bounce');
-
-	// $('.main-stage').removeClass('hide');
-	// $('.ingredients-stage').removeClass('hide');
-	// $('.tossing-stage').removeClass('hide');
-	// $('.main-stage').addClass('hide');
-	// $('.share-stage').removeClass('hide');
 
 	currentIngredientIdx 	= 0;
 	currentStageIdx 		= 0;
@@ -53,13 +46,9 @@ var plateClickHandler = function() {
 			}, 500);
 		}
 	}
-
 	window.requestAnimFrame(function() {
-		showIngredients(0, 6);
+		showIngredients(0, 5);
 	});
-
-
-
 };
 
 var showIngredient = function() {
@@ -110,37 +99,13 @@ var showShareButtons = function() {
 		else {
 			$('.js-message-0').addClass('hide');
 			$('.js-message-1').removeClass('hide').addClass('bounce');
+			$('.chunks-container').addClass('hide');
 			$('.share-container').addClass('in');
 			$('.credits-container').addClass('in');
 		}
 	};
-
 	window.requestAnimFrame(function() {
 		hideChunks(0,6); // Start from 1, total 5 chunks
-	});
-};
-
-var doToss = function( callback ) {
-	
-	function animateToss(currentFrameIdx, totalFrames) {
-		$('.js-toss-'+currentFrameIdx).addClass('hide');
-		$('.js-toss-'+(currentFrameIdx+1)).removeClass('hide');
-
-		if(currentFrameIdx < totalFrames-1) {
-				window.requestAnimFrame(function() {
-					animateToss(currentFrameIdx+1, totalFrames);
-				});
-		}
-		else {
-			$('.js-toss-'+(currentFrameIdx+1)).addClass('hide');
-			$('.js-tossbase').addClass('hide');
-			callback();
-		}
-	}
-
-	window.requestAnimFrame(function() {
-		animateToss(0, 17);
-		// animateToss(-1, 32);
 	});
 };
 
@@ -167,28 +132,49 @@ var shareLink = function() {
 
 var toss = function() {
 	$(document).trigger('disable_shaker'); // Disable shaker while tossing.
-
-	$('.toss-banner').addClass('hide');
+	$('.toss-banner').addClass('opaque');
 	$('.toss-base').addClass('hide');
 	$('.js-tossbase').removeClass('hide');
 
-	var tossCallback = function() {
-		tossCount += 1;
-		console.log('In callback', tossCount);
+	var doToss = function( callback ) {
 
-		$('.js-tossmessage-'+tossCount).removeClass('hide');
+		var tossFrameRate 	= 8, // FPS
+			totalFrames 	= 17;
+
+		function animateToss(currentFrameIdx, totalFrames) {
+			$('.js-toss-'+currentFrameIdx).removeClass('hide'); 	// Show next frame
+			$('.js-toss-'+(currentFrameIdx-1)).addClass('hide'); // Hide previous frame
+			if(currentFrameIdx > totalFrames ) { return callback(); }
+			else { 
+				setTimeout( function() {
+					animateToss(currentFrameIdx+1, totalFrames);
+				}, 1000/tossFrameRate );
+			}
+		}
+		animateToss(0,totalFrames);
+	};
+
+	var afterToss = function() {
+		tossCount += 1;
+
+		$('.js-tossmessage-'+(tossCount-1)).addClass('hide');
+		$('.js-tossmessage-'+tossCount).removeClass('opaque hide');
+		$('.js-tossbase').addClass('hide');
 		$('.js-tossbase-'+tossCount).removeClass('hide');
-		
+
 		if(tossCount < maxTosses) {
+			$('.js-tossmessage-'+tossCount).removeClass('hide');
 			$(document).trigger('enable_shaker');
 		}
 		else {
-			nextStage();
+			setTimeout( function() {
+				nextStage();
+			}, 125);
 		}
 	};
 
-	doToss(tossCallback);
-	
+	doToss(afterToss);
+
 };
 
 module.exports = {

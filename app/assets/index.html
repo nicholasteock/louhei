@@ -19,26 +19,54 @@
 	<script src="js/vendor.js"></script>
 	<script src="js/app.js"></script>
 	<script>
-		require('preloader')(function() {
-			require('initialize');
+		// Show QR prompt if user is on desktop
+		$(function() {
+			if( 'ontouchstart' in window || window.navigator.msMaxTouchPoints ) {
+				require('preloader')(function() {
+					require('initialize');
+				});
+			}
+			else {
+				$('.desktop-message').removeClass('hide');
+				$('.portraitonly-message').addClass('hide');
+				$('.loading-overlay').addClass('hide');
+			}
 		});
-			// require('initialize');
 	</script>
+	<!-- Begin Google Analytics script-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-59788981-1', 'auto');
+		ga('send', 'pageview');
+	</script> <!-- End Google Analytics script-->
 </head>
 <body>
 	<audio class="audio-player" src="bg_music.mp3" loop></audio>
 
+	<!-- Desktop prompt message (Show QR code) -->
+	<div class="container-fluid text-center desktop-message hide">
+		<div class="jumbotron">
+			<h2>This is a mobile only website</h2>
+			<h2>Please access it from your mobile phone</h2>
+			<h2>Or scan the QR code below</h2>
+			<img src="images/qr_code.png">
+		</div>
+	</div>
+
 	<!-- Landscape prompt message -->
 	<div class="container-fluid text-center portraitonly-message">
-		<img src="images/rotate_device.png">
-		<h2>Landscape not supported</h2>
-		<h2>Please rotate to portrait</h2>
+		<div class="jumbotron">
+			<img src="images/rotate_device.png">
+			<h2>Landscape not supported</h2>
+			<h2>Please rotate to portrait</h2>
+		</div>
 	</div>
 
 	<!-- Preloader loading overlay -->
-	<div class="loading-overlay">
+	<div class="container-fluid loading-overlay">
 		<div class="jumbotron">
 			<h1 class="text-center">Loading...</h1>
+			<div class="spinner"></div>
 		</div>
 	</div>
 
@@ -49,23 +77,23 @@
 		<div class="row main-stage util-bottom-gap">
 			
 			<!-- Intro text -->
-			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-				<img class="img-responsive banner" src="images/firstpage/firstpage_welcome_text.png">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 util-top-gap">
+				<img class="center-block banner" src="images/firstpage/firstpage_welcome_text.png">
 			</div> <!-- End intro text -->
 
 			<!-- Intro plate -->
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 base-layer plate-container util-top-gap">
-				<img class="img-responsive plate js-plate-0" src="images/firstpage/loadingplates_01.png">
-				<img class="img-responsive plate js-plate-1 hide" src="images/firstpage/loadingplates_02.png">
-				<img class="img-responsive plate js-plate-2 hide" src="images/firstpage/loadingplates_03.png">
-				<img class="img-responsive plate js-plate-3 hide" src="images/firstpage/loadingplates_04.png">
-				<img class="img-responsive plate js-plate-4 hide" src="images/firstpage/loadingplates_05.png">
-				<img class="img-responsive plate js-plate-5 hide" src="images/firstpage/loadingplates_06.png">
-				<img class="img-responsive plate js-plate-6 hide" src="images/firstpage/loadingplates_07.png">
+				<img class="img-responsive center-block plate js-plate-0" src="images/firstpage/loadingplates_01.png">
+				<img class="img-responsive center-block plate js-plate-1 hide" src="images/firstpage/loadingplates_02.png">
+				<img class="img-responsive center-block plate js-plate-2 hide" src="images/firstpage/loadingplates_03.png">
+				<img class="img-responsive center-block plate js-plate-3 hide" src="images/firstpage/loadingplates_04.png">
+				<img class="img-responsive center-block plate js-plate-4 hide" src="images/firstpage/loadingplates_05.png">
+				<img class="img-responsive center-block plate js-plate-5 hide" src="images/firstpage/loadingplates_06.png">
+				<img class="img-responsive center-block plate js-plate-6 hide" src="images/firstpage/loadingplates_07.png">
 			</div> <!-- End intro plate -->
 
 			<!-- Credits -->
-			<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 text-right util-top-gap credits-text">
+			<div class="col-xs-7 col-sm-6 col-md-6 col-lg-6 text-right util-top-gap credits-text">
 				Proudly created by
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 credits-logo">
@@ -80,19 +108,19 @@
 			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 banner-container">
 			
 				<!-- Ingredient names -->
-				<img class="img-responsive banner ingredient-banner js-ingredient-0" src="images/ingredients/add_fish_text.png">
-				<img class="img-responsive banner ingredient-banner js-ingredient-1 hide" src="images/ingredients/add_lime_text.png">
-				<img class="img-responsive banner ingredient-banner js-ingredient-2 hide" src="images/ingredients/add_peppercinnamon_text.png">
-				<img class="img-responsive banner ingredient-banner js-ingredient-3 hide" src="images/ingredients/add_sauce_text.png">
-				<img class="img-responsive banner ingredient-banner js-ingredient-4 hide" src="images/ingredients/add_crackers_text.png">
+				<img class="center-block util-top-gap banner ingredient-banner js-ingredient-0" src="images/ingredients/add_fish_text.png">
+				<img class="center-block util-top-gap banner ingredient-banner js-ingredient-1 hide" src="images/ingredients/add_lime_text.png">
+				<img class="center-block util-top-gap banner ingredient-banner js-ingredient-2 hide" src="images/ingredients/add_peppercinnamon_text.png">
+				<img class="center-block util-top-gap banner ingredient-banner js-ingredient-3 hide" src="images/ingredients/add_sauce_text.png">
+				<img class="center-block util-top-gap banner ingredient-banner js-ingredient-4 hide" src="images/ingredients/add_crackers_text.png">
 				<!-- End ingredient names -->
 
 				<!-- Auspicious messages -->
-				<img class="img-responsive banner desc-banner js-desc-0" src="images/ingredients/fish_text.png">
-				<img class="img-responsive banner desc-banner js-desc-1" src="images/ingredients/lime_text.png">
-				<img class="img-responsive banner desc-banner js-desc-2" src="images/ingredients/peppercinnamon_text.png">
-				<img class="img-responsive banner desc-banner js-desc-3" src="images/ingredients/sauce_text.png">
-				<img class="img-responsive banner desc-banner js-desc-4" src="images/ingredients/crackers_text.png">
+				<img class="center-block util-top-gap banner desc-banner js-desc-0" src="images/ingredients/fish_text.png">
+				<img class="center-block util-top-gap banner desc-banner js-desc-1" src="images/ingredients/lime_text.png">
+				<img class="center-block util-top-gap banner desc-banner js-desc-2" src="images/ingredients/peppercinnamon_text.png">
+				<img class="center-block util-top-gap banner desc-banner js-desc-3" src="images/ingredients/sauce_text.png">
+				<img class="center-block util-top-gap banner desc-banner js-desc-4" src="images/ingredients/crackers_text.png">
 				<!-- End auspicious messages -->
 			</div> <!-- End top banner -->
 
@@ -122,12 +150,12 @@
 		<div class="row stage tossing-stage">
 
 			<!-- Top banner (Toss instructions) -->
-			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 banner-container">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 util-top-gap col-lg-offset-1 banner-container">
 				<!-- Toss instructions -->
-				<img class="img-responsive banner toss-banner js-tossmessage-0" src="images/tossing/tossing_start_text.png">
-				<img class="img-responsive banner toss-banner js-tossmessage-1 hide" src="images/tossing/tossing_halfway_text.png">
-				<img class="img-responsive banner toss-banner js-tossmessage-2 hide" src="images/tossing/tossing_final_text.png">
-				<img class="img-responsive banner toss-banner js-tossmessage-3 hide" src="images/tossing/tossing_final_text.png">
+				<img class="center-block util-top-gap banner toss-banner js-tossmessage-0" src="images/tossing/tossing_start_text.png">
+				<img class="center-block util-top-gap banner toss-banner js-tossmessage-1 hide" src="images/tossing/tossing_halfway_text.png">
+				<img class="center-block util-top-gap banner toss-banner js-tossmessage-2 hide" src="images/tossing/tossing_final_text.png">
+				<img class="center-block util-top-gap banner toss-banner js-tossmessage-3 hide" src="images/tossing/tossing_final_text.png">
 				<!-- End toss instructions -->
 			</div>
 			
@@ -143,7 +171,7 @@
 
 			<!-- Toss frames -->
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 base-layer toss-frame-container">
-				<img class="toss-frame js-toss-0 hide" src="images/tossing/tossing_0.png">
+				<img class="toss-frame js-toss-0 hide " src="images/tossing/tossing_0.png">
 				<img class="toss-frame js-toss-1 hide" src="images/tossing/tossing_1.png">
 				<img class="toss-frame js-toss-2 hide" src="images/tossing/tossing_2.png">
 				<img class="toss-frame js-toss-3 hide" src="images/tossing/tossing_3.png">
@@ -170,8 +198,8 @@
 			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 banner-container">
 			
 				<!-- Final messages -->
-				<img class="img-responsive banner js-message-0" src="images/sharing/share_start_text.png">
-				<img class="img-responsive banner bob js-message-1 hide" src="images/sharing/share_end_text.png">
+				<img class="center-block util-top-gap banner final-banner js-message-0" src="images/sharing/share_start_text.png">
+				<img class="center-block util-top-gap banner final-banner bob js-message-1 hide" src="images/sharing/share_end_text.png">
 				<!-- End final messages -->
 			</div> <!-- End top banner (Final messages) -->
 
@@ -190,12 +218,12 @@
 				<img class="chunk-plate js-chunk-5" src="images/sharing/mainplate_eatenpiece_5.png">
 			</div>
 
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 middle-layer credits-container util-top-gap">
-				<div class="text-center util-font-20 grey">PROUDLY CREATED BY</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 middle-layer credits-container">
+				<div class="text-center share-text">PROUDLY CREATED BY</div>
 				<a href="http://2359media.com/our-work/" target="_blank"><img class="center-block share-logo" src="images/sharing/logo.png"></a>
-				<div class="text-center util-font-20 grey bold">Share this with your friends!</div>
+				<div class="text-center share-text">Share this with your friends!</div>
 				<div class="share-buttons-container">
-					<input type="text" class="input-lg grey share-link" value="http://bitly.com/1z99Dhc" readonly>
+					<input type="text" class="input-lg util-bottom-gap share-link" value="http://cny.2359media.com" readonly>
 					<button type="button" class="btn btn-block share-button share-whatsapp js-share-whatsapp">
 						<img class="share-icon" src="images/sharing/icon_wa.png">
 						<span class="text-left share-type"> WhatsApp</span>

@@ -4,24 +4,11 @@ var application 	= require('application');
 // require('swiper');
 
 $(function() {
-	$('.loading-overlay').addClass('hide');
-	nick = application;
-	application.initialize();
-
-	$('.app-stage').click(function() {
-		if (!document.fullscreenElement &&    // alternative standard method
-      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
-			if (document.documentElement.requestFullscreen) {
-		      document.documentElement.requestFullscreen();
-		    } else if (document.documentElement.msRequestFullscreen) {
-		      document.documentElement.msRequestFullscreen();
-		    } else if (document.documentElement.mozRequestFullScreen) {
-		      document.documentElement.mozRequestFullScreen();
-		    } else if (document.documentElement.webkitRequestFullscreen) {
-		      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-		    }
-		}
+	$(document).ready( function() {
+		$('.loading-overlay').addClass('hide');
 	});
+
+	application.initialize();
 
 	$('.main-stage .js-plate-0').click(function() {
 		$(".audio-player")[0].play();
@@ -38,9 +25,14 @@ $(function() {
 
 	$('.js-share-whatsapp').click(function() {
 		$(".audio-player")[0].pause();
+		ga('send', 'event', 'button', 'click', 'WhatsApp Button');
 		setTimeout( function() {
 			application.shareLink();
 		}, 100);
+	});
+
+	$('.share-logo').on('click', function() {
+		ga('send', 'event', 'button', 'click', '2359 Visit');
 	});
 
 	$('.share-link').click(function(el) {
