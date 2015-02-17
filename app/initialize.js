@@ -25,10 +25,14 @@ $(function() {
 
 	$('.js-share-whatsapp').click(function() {
 		$(".audio-player")[0].pause();
+		ga('send', 'event', 'button', 'click', 'WhatsApp Button');
 		setTimeout( function() {
-			ga('send', 'event', 'button', 'click', 'WhatsApp Button');
 			application.shareLink();
 		}, 100);
+	});
+
+	$('.share-logo').on('click', function() {
+		ga('send', 'event', 'button', 'click', '2359 Visit');
 	});
 
 	$('.share-link').click(function(el) {
