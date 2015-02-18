@@ -106,6 +106,7 @@ var showShareButtons = function() {
 	};
 	window.requestAnimFrame(function() {
 		hideChunks(0,6); // Start from 1, total 5 chunks
+		$('.bonus-number').text(Math.floor(Math.random()*9000) + 1000);
 	});
 };
 
