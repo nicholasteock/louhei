@@ -23,6 +23,12 @@ $(function() {
 		application.showShareButtons();
 	});
 
+	$('.bonus-banner').click(function() {
+		$('.bonus-banner').removeClass('in')
+		$(window).height();
+		$('.bonus-banner').addClass('in');
+	});
+	
 	$('.js-share-whatsapp').click(function() {
 		$(".audio-player")[0].pause();
 		ga('send', 'event', 'button', 'click', 'WhatsApp Button');

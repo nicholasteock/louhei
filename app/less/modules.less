@@ -33,187 +33,209 @@
 }
 // ============================================================================
 
+//  Lucky Number Easter egg
+// ============================================================================
+.bonus-number {
+	position: absolute;
+	font-weight: bold;
+	color: #FFCC00;
+	font-size: 70px;
+}
+.bonus-banner {
+	position: relative;
+	top: 0;
+
+	&.in {
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		-webkit-animation: reveal 1.2s forwards;
+		animation: reveal 1.2s forwards;
+	}
+}
+
+// ============================================================================
+
 // Utility classes
 // ============================================================================
 .top-layer {
-    z-index: 3;
+	z-index: 3;
 }
 .middle-layer {
-    z-index: 2;
+	z-index: 2;
 }
 .base-layer {
-    z-index: 1;
+	z-index: 1;
 }
 
 .util-top-gap {
-    margin-top: 3%;
+	margin-top: 3%;
 }
 .util-bottom-gap {
-    margin-bottom: 3%;
+	margin-bottom: 3%;
 }
 // ============================================================================
 
 .stage {
-    height: 100%;
-    overflow: hidden;
+	height: 100%;
+	overflow: hidden;
 }
 
 .credits-text {
-    font-size: 16px;
-    padding-right: 10px;
+	font-size: 16px;
+	padding-right: 10px;
 }
 .credits-logo {
-    padding: 0px;
+	padding: 0px;
 }
 
 .banner-container {
-    height: 35%;
-    overflow: hidden;
+	height: 35%;
+	overflow: hidden;
 }
 .banner {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 .ingredient-banner {
-    position: relative;
-    margin-bottom: 16.8%;
-    top: -150px;
+	position: relative;
+	margin-bottom: 16.8%;
+	top: -150px;
 
-    &.in {
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-animation: top-in 1.2s ease forwards;
-        animation: top-in 1.2s ease forwards;
-    }
+	&.in {
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		-webkit-animation: top-in 1.2s ease forwards;
+		animation: top-in 1.2s ease forwards;
+	}
 }
 
 .desc-banner {
-    display: none;
+	display: none;
 
-    &.bounce {
-        display: block;
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-animation: bounce 0.8s ease forwards infinite;
-        animation: bounce 0.8s ease forwards infinite;
-    }
+	&.bounce {
+		display: block;
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		-webkit-animation: bounce 0.8s ease forwards infinite;
+		animation: bounce 0.8s ease forwards infinite;
+	}
 }
 
 .plates-container, .toss-base-container, .chunks-container {
-    height: 62%;
-    overflow: hidden;
+	height: 62%;
+	overflow: hidden;
 }
 
 .main-plate, .toss-base {
-    max-width: 120%;
-    -webkit-transform: translate(-8%, 10%);
-    transform: translate(-8%, 10%);
+	max-width: 120%;
+	-webkit-transform: translate(-8%, 10%);
+	transform: translate(-8%, 10%);
 }
 
 .small-plate {
-    max-width: 50%;
-    position: absolute;
-    bottom: -40%;
-    left: 25%;
-    display: none;
+	max-width: 50%;
+	position: absolute;
+	bottom: -40%;
+	left: 25%;
+	display: none;
 
-    &.in {
-        display: block;
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-animation: bottom-in 1.2s ease forwards;
-        animation: bottom-in 1.2s ease forwards;
-    }
+	&.in {
+		display: block;
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		-webkit-animation: bottom-in 1.2s ease forwards;
+		animation: bottom-in 1.2s ease forwards;
+	}
 }
 
 .toss-banner {
-    margin-bottom: 16.5%;
+	margin-bottom: 16.5%;
 
-    &.opaque {
-        opacity: 0;
-    }
+	&.opaque {
+		opacity: 0;
+	}
 }
 
 .toss-frame-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
 }
 .toss-frame {
-    max-width: 100%;
-    position: absolute;
-    top: 0;
+	max-width: 100%;
+	position: absolute;
+	top: 0;
 }
 
 .final-banner {
-    margin-bottom: 16.5%;
+	margin-bottom: 16.5%;
 }
 
 .chunks-container {
-    position: absolute;
-    top: 0;
-    -webkit-transform: translate(0,55.3%);
-    transform: translate(0,55.3%);
+	position: absolute;
+	top: 0;
+	-webkit-transform: translate(0,55.3%);
+	transform: translate(0,55.3%);
 }
 .chunk-plate {
-    max-width: 109%;
-    -webkit-transform: translate(-8%);
-    transform: translate(-8%);
-    position: absolute;
-    top: 0;
+	max-width: 109%;
+	-webkit-transform: translate(-8%);
+	transform: translate(-8%);
+	position: absolute;
+	top: 0;
 }
 
 .credits-container {
-    height: 45%;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    -webkit-transform: translate(0,110%);
-    transform: translate(0,110%);
+	height: 45%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	-webkit-transform: translate(0,110%);
+	transform: translate(0,110%);
 
-    &.in {
-        -webkit-animation: fade-in 2.3s ease forwards;
-        animation: fade-in 2.3s ease forwards;
-    }
+	&.in {
+		-webkit-animation: fade-in 2.3s ease forwards;
+		animation: fade-in 2.3s ease forwards;
+	}
 }
 
 .share-text {
-    font-size: 20px;
-    color: #343434;
-    font-weight: bold;
+	font-size: 20px;
+	color: #343434;
+	font-weight: bold;
 }
 .share-logo {
-    max-width: 40%;
+	max-width: 40%;
 }
 .share-link {
-    width: 100%;
-    color: #343434;
+	width: 100%;
+	color: #343434;
 }
 .share-buttons-container {
-    padding: 0 15%;
+	padding: 0 15%;
 }
 .share-button {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    color: #FFF !important;
-    outline: none !important;
-    margin-bottom: 10px;
-    border-radius: 10px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	color: #FFF !important;
+	outline: none !important;
+	margin-bottom: 10px;
+	border-radius: 10px;
 }
 .share-whatsapp {
-    background-color: #44cc71;
-    -webkit-box-shadow: 0px 4px 0px #38ba64;
-    box-shadow: 0px 4px 0px #38ba64;
+	background-color: #44cc71;
+	-webkit-box-shadow: 0px 4px 0px #38ba64;
+	box-shadow: 0px 4px 0px #38ba64;
 }
 .share-sms {
-    background-color: #5fc6c4;
-    -webkit-box-shadow: 0px 4px 0px #54ABA8;
-    box-shadow: 0px 4px 0px #54ABA8;
+	background-color: #5fc6c4;
+	-webkit-box-shadow: 0px 4px 0px #54ABA8;
+	box-shadow: 0px 4px 0px #54ABA8;
 }
 .share-icon {
   max-width: 15%;
@@ -224,183 +246,204 @@
 }
 
 .bob {
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-    -webkit-animation: bounce 0.7s ease forwards infinite;
-    animation: bounce 0.7s ease forwards infinite;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	-webkit-animation: bounce 0.7s ease forwards infinite;
+	animation: bounce 0.7s ease forwards infinite;
 }
 
 // Media Queries (for modern taller screens)
 // ============================================================================
 @media screen and (min-height: 500px) {
-    .credits-text {
-        font-size: 19px;
-    }
-    .ingredient-banner {
-        margin-bottom: 14%;
-    }
-    .desc-banner {
-        max-width: 95%;
-    }
-    .toss-banner {
-        margin-bottom: 14%;
-    }
-    .final-banner {
-        margin-bottom: 13.5%;
-    }
-    .chunk-plate {
-        max-width: 111%;
-    }
-    .chunks-container {
-        -webkit-transform: translate(0,56%);
-        transform: translate(0,56%);
-    }
-    .share-text {
-        font-size: 21px;
-    }
+	.credits-text {
+		font-size: 19px;
+	}
+	.ingredient-banner {
+		margin-bottom: 14%;
+	}
+	.desc-banner {
+		max-width: 95%;
+	}
+	.toss-banner {
+		margin-bottom: 14%;
+	}
+	.final-banner {
+		margin-bottom: 13.5%;
+	}
+	.chunk-plate {
+		max-width: 111%;
+	}
+	.chunks-container {
+		-webkit-transform: translate(0,56%);
+		transform: translate(0,56%);
+	}
+	.share-text {
+		font-size: 21px;
+	}
 }
 
 // Accounting for tablet aspect ratios
 @media screen and (min-height: 500px) and (min-device-aspect-ratio: 10/16) {
-    .chunk-plate {
-        max-width: 115.5%;
-    }
-    .chunks-container {
-        -webkit-transform: translate(0,56.5%);
-        transform: translate(0,56.5%);
-    }
-    .toss-frame {
-        -webkit-transform: scale(1.2,1); /* Chrome, Safari, Opera */
-        transform: scale(1.2,1);
-    }
+	.chunk-plate {
+		max-width: 115.5%;
+	}
+	.chunks-container {
+		-webkit-transform: translate(0,56.5%);
+		transform: translate(0,56.5%);
+	}
+	.toss-frame {
+		-webkit-transform: scale(1.2,1); /* Chrome, Safari, Opera */
+		transform: scale(1.2,1);
+	}
 }
 
 // Accounting for tablet larger screens
 @media screen and (min-width: 768px) {
-    .ingredient-banner {
-        margin-bottom: 16.8%;
-    }
-    .credits-logo {
-        padding-top: 10px;
-        padding-left: 10px;
-        img {
-            width: 60%;
-        }
-    }
-    .credits-text {
-        font-size: 30px;
-        padding-right: 30px;
-    }
-    .share-text {
-        font-size: 45px;
-    }
-    .share-link {
-        padding-top: 10px; 
-        padding-bottom: 10px; 
-        height: 60px;
-        font-size: 35px;
-    }
-    .share-type {
-        font-size: 36px;
-        line-height: 1.5;
-    }
-    .share-icon {
-        max-width: 11%;
-    }
-    .credits-container {
-        height: 47%;
-    }
-    .main-plate {
-        width: 150%;
-    }
-    .chunk-plate {
-        width: 150%;
-    }
-    .toss-base {
-        width: 150%;
-    }
-    .small-plate {
-        left: 28%;
-    }
+	.ingredient-banner {
+		margin-bottom: 16.8%;
+	}
+	.credits-logo {
+		padding-top: 10px;
+		padding-left: 10px;
+		img {
+			width: 60%;
+		}
+	}
+	.credits-text {
+		font-size: 30px;
+		padding-right: 30px;
+	}
+	.share-text {
+		font-size: 45px;
+	}
+	.share-link {
+		padding-top: 10px; 
+		padding-bottom: 10px; 
+		height: 60px;
+		font-size: 35px;
+	}
+	.share-type {
+		font-size: 36px;
+		line-height: 1.5;
+	}
+	.share-icon {
+		max-width: 11%;
+	}
+	.credits-container {
+		height: 47%;
+	}
+	.main-plate {
+		width: 150%;
+	}
+	.chunk-plate {
+		width: 150%;
+	}
+	.toss-base {
+		width: 150%;
+	}
+	.small-plate {
+		left: 28%;
+	}
 }
 
 // Animation keyframes
 // ============================================================================
 @-webkit-keyframes top-in {
-    100% { top: 0; }
+	100% { top: 0; }
 }
 
 @keyframes top-in {
-    100% { top: 0; }
+	100% { top: 0; }
 }
 
 @-webkit-keyframes bottom-in {
-    100% { bottom: 1.5%; }
+	100% { bottom: 1.5%; }
 }
 
 @keyframes bottom-in {
-    100% { bottom: 1.5%; }
+	100% { bottom: 1.5%; }
 }
 
 @-webkit-keyframes bounce {
-    0% {
-        -webkit-transform: scale(0.94,0.94);
-        transform: scale(0.94,0.94);
-    }
-    50% {
-        -webkit-transform: scale(1,1);
-        transform: scale(1,1);
-    }
-    100% {
-        -webkit-transform: scale(0.94,0.94);
-        transform: scale(0.94,0.94);
-    }
+	0% {
+		-webkit-transform: scale(0.94,0.94);
+		transform: scale(0.94,0.94);
+	}
+	50% {
+		-webkit-transform: scale(1,1);
+		transform: scale(1,1);
+	}
+	100% {
+		-webkit-transform: scale(0.94,0.94);
+		transform: scale(0.94,0.94);
+	}
 }
 
 @keyframes bounce {
-    0% {
-        -webkit-transform: scale(0.94,0.94);
-        transform: scale(0.94,0.94);
-    }
-    50% {
-        -webkit-transform: scale(1,1);
-        transform: scale(1,1);
-    }
-    100% {
-        -webkit-transform: scale(0.94,0.94);
-        transform: scale(0.94,0.94);
-    }
+	0% {
+		-webkit-transform: scale(0.94,0.94);
+		transform: scale(0.94,0.94);
+	}
+	50% {
+		-webkit-transform: scale(1,1);
+		transform: scale(1,1);
+	}
+	100% {
+		-webkit-transform: scale(0.94,0.94);
+		transform: scale(0.94,0.94);
+	}
 }
 
 @-webkit-keyframes fade-in {
-    100% { opacity: 1; }
+	100% { opacity: 1; }
 }
 
 @keyframes fade-in {
-    100% { opacity: 1; }
+	100% { opacity: 1; }
 }
 
 @-webkit-keyframes spin {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0 #FFF;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em #ffffff;
-    height: 5em;
-  }
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0 #FFF;
+		height: 4em;
+	}
+	40% {
+		box-shadow: 0 -2em #ffffff;
+		height: 5em;
+	}
 }
 @keyframes spin {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0 #FFF;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em #ffffff;
-    height: 5em;
-  }
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0 #FFF;
+		height: 4em;
+	}
+	40% {
+		box-shadow: 0 -2em #ffffff;
+		height: 5em;
+	}
+}
+
+@-webkit-keyframes reveal {
+	50% {
+		-webkit-transform: translateY(62%);
+		transform: translateY(62%);
+	}
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+}
+@keyframes reveal {
+	50% {
+		-webkit-transform: translateY(62%);
+		transform: translateY(62%);
+	}
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
 }
